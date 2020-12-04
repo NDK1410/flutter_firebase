@@ -53,7 +53,7 @@ class Item {
     final String routeName = '/detail/$itemId';
     return routes.putIfAbsent(
       routeName,
-          () => MaterialPageRoute<void>(
+      () => MaterialPageRoute<void>(
         settings: RouteSettings(name: routeName),
         builder: (BuildContext context) => DetailPage(itemId),
       ),
@@ -86,6 +86,7 @@ class _DetailPageState extends State<DetailPage> {
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -112,8 +113,11 @@ class _DetailPageState extends State<DetailPage> {
                       margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                       child: Column(
                         children: <Widget>[
-                          Text('Today match:', style: TextStyle(color: Colors.black.withOpacity(0.8))),
-                          Text( _item.matchteam, style: Theme.of(context).textTheme.title)
+                          Text('Today match:',
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(0.8))),
+                          Text(_item.matchteam,
+                              style: Theme.of(context).textTheme.title)
                         ],
                       ),
                     ),
@@ -121,14 +125,16 @@ class _DetailPageState extends State<DetailPage> {
                       margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                       child: Column(
                         children: <Widget>[
-                          Text('Score:', style: TextStyle(color: Colors.black.withOpacity(0.8))),
-                          Text( _item.score, style: Theme.of(context).textTheme.title)
+                          Text('Score:',
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(0.8))),
+                          Text(_item.score,
+                              style: Theme.of(context).textTheme.title)
                         ],
                       ),
                     ),
                   ],
-                )
-            ),
+                )),
           ),
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
@@ -182,7 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   final TextEditingController _topicController =
-  TextEditingController(text: 'topic');
+      TextEditingController(text: 'topic');
 
   Widget _buildDialog(BuildContext context, Item item) {
     return AlertDialog(
@@ -282,8 +288,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                       child: Column(
                         children: <Widget>[
-                          Text('Welcome to this Flutter App:', style: TextStyle(color: Colors.black.withOpacity(0.8))),
-                          Text('You already subscribe to the matchscore topic', style: Theme.of(context).textTheme.title)
+                          Text('Welcome to this Flutter App:',
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(0.8))),
+                          Text('You already subscribe to the matchscore topic',
+                              style: Theme.of(context).textTheme.title)
                         ],
                       ),
                     ),
@@ -291,13 +300,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                       child: Column(
                         children: <Widget>[
-                          Text('Now you will receive the push notification from the matchscore topics', style: TextStyle(color: Colors.black.withOpacity(0.8)))
+                          Text(
+                              'Now you will receive the push notification from the matchscore topics',
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(0.8)))
                         ],
                       ),
                     ),
                   ],
-                )
-            ),
+                )),
           ),
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
